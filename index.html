@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sumit Saha, Learn with Sumit" />
+    <meta name="description" content="We love JavaScript" />
+    <title>day-4</title>
+  </head>
+  <body>
+    <script>
+      const inventors = [
+        { first: "Albert", last: "Einstein", year: 1879, passed: 1955 },
+        { first: "Issac", last: "Newton", year: 1642, passed: 1727 },
+        { first: "Galelio", last: "Galelei", year: 1564, passed: 1642 },
+        { first: "Marie", last: "Curie", year: 1847, passed: 1934 },
+        { first: "Johannes", last: "Kepler", year: 1571, passed: 1630 },
+        { first: "Nicolaus", last: "Copernicus", year: 1473, passed: 1543 },
+        { first: "Max", last: "Planck", year: 1858, passed: 1967 },
+      ];
+      const inventorsIn1500 = inventors.map((inventor) => {
+        if (inventor.first == "Albert") {
+          return true;
+        }
+      });
+      console.log(inventorsIn1500);
+      const fullName = inventors.map(
+        (inventor) => inventor.first + " " + inventor.last
+      );
+      console.log(fullName);
+      const sortGame = inventors.sort((a, b) => (a.year > b.year ? 1 : -1));
+      console.table(sortGame);
+      const totalYears = inventors.reduce(function (total, inventor) {
+        return total + (inventor.passed - inventor.year);
+      }, 0);
+      console.log(totalYears);
+      const life = inventors.sort((a, b) => {
+        const first = a.passed - a.year;
+        const second = b.passed - b.year;
+        return first > second ? -1 : 1;
+      });
+      console.table(life);
+      const people = [
+        "arnob,roy",
+        "animesh,chando",
+        "nirupom,nirvor",
+        "akash,bani",
+        "oskar,wilde",
+        "harry,potter",
+        "shomen,nogor",
+        "shundor,pichai",
+        "dani,daniels",
+        "mia,malkova",
+        "mia,khalifa",
+        "shukh,shagor",
+      ];
+      const person = people.sort((a, b) => {
+        const [afirstName, alastName] = a.split(",");
+        const [bfirstName, blastName] = b.split(",");
+        return alastName > blastName ? 1 : -1;
+      });
+      console.log(person);
+      const medias = [
+        "bus",
+        "bus",
+        "bus",
+        "bus",
+        "bus",
+        "bus",
+        "truck",
+        "truck",
+        "honda",
+        "honda",
+        "honda",
+      ];
+      const reduceGame = medias.reduce((obj, media) => {
+        if (!obj[media]) {
+          obj[media] = 0;
+        }
+        obj[media]++;
+        return obj;
+      }, {});
+      console.log(reduceGame);
+    </script>
+  </body>
+</html>
